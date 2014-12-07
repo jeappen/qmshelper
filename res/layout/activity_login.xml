@@ -1,0 +1,274 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e1e1e1"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="20dp" >
+
+    <!--
+         <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".5"-->
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical" >
+        <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+       
+
+        <EditText
+            android:id="@+id/fname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/lname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+
+        <EditText
+            android:id="@+id/croll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="College Roll Number"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.61"
+                android:orientation="horizontal"
+                android:text="Gender" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender: "
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="F" />
+
+                <RadioButton
+                    android:id="@+id/Male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="M" />
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                    android:id="@+id/DOB"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="DOB: --/--/---- "
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+        <Button
+            android:id="@+id/changeDOB"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundshapentn"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="Set Date"
+            android:onClick="showDatePickerDialog"
+            android:textColor="#ffffff" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/mobnum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="Mobile Number (eg:+91994047XXX0)"
+            android:inputType="text|phone"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+        <TextView
+                    android:id="@+id/DOB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Branch: "
+                    android:ems="10"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <Spinner
+    android:id="@+id/branch_spinner"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:ems="10"
+    android:layout_height="wrap_content" />
+        </LinearLayout> --> 
+         <EditText
+            android:id="@+id/cbranch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="Branch"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+        
+          <EditText
+              android:id="@+id/cname"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="5dp"
+              android:background="@drawable/edittext_rounded_corners"
+              android:ems="10"
+              android:hint="College Name"
+              android:maxLines="1"
+              android:padding="15dp" >
+
+        </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+         <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.61"
+                android:orientation="horizontal"
+                android:text="Accom" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Want Accomodation : "
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/want"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes" />
+
+                <RadioButton
+                    android:id="@+id/notwanted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="No" />
+            </RadioGroup>
+        </LinearLayout>
+        
+          <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="City"
+            android:maxLines="1"
+            android:padding="15dp" >
+        </EditText>
+        
+        
+        
+
+        <EditText
+            android:id="@+id/pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_rounded_corners"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="15dp" />
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/roundshapentn"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="Update Details"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Button1"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@+id/tvDate"
+            android:text="Enter Valid Credential"
+            android:textColor="#c70a0a"
+            android:visibility="invisible" />
+    </LinearLayout>
+ </ScrollView>
+</LinearLayout>

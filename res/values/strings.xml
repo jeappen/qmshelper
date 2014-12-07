@@ -1,0 +1,6 @@
+<resources>
+
+    <string name="app_name">QMS Helper</string>
+    <string name="faq">"FAQ:\n1.Default Password is same as email ID\n2.Changing email ID and registering will create a new account with that email. All other details are editable."</string>
+
+</resources>
