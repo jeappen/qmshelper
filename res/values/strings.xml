@@ -1,6 +1,10 @@
 <resources>
 
-    <string name="app_name">QMS Helper</string>
-    <string name="faq">"FAQ:\n1.Default Password is same as email ID\n2.Changing email ID and registering will create a new account with that email. All other details are editable."</string>
-
+    <string name="app_name">Shaastra QMS Assistant</string>
+    <string name="faq">"Tips:\n1.Default Password is same as email ID.\n2.Changing email ID and registering will create a new account with that email. All other details are editable.\n3.Tap \"Clear All Fields\" to enter a new email id for another account."</string>
+	<string name="registeredfaq">"Tips:\n1.This app does not change the password for existing accounts.\n2.Since every account is tied to an email, the email cannot be changed. All other details are editable.\n3.Tap \"Clear All Fields\" to clear everything except the email."</string>
+	<string name="spinner_title">no of tickets</string>
+	<string name="id_name">User ID</string>
+	<string name="id_prefix"></string>
+	<string name="id_default">(make new account to get)</string>
 </resources>

@@ -321,6 +321,12 @@
             android:inputType="textPassword"
             android:visibility="gone"
             android:padding="15dp" />
+        <TextView
+                    android:id="@+id/idTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
        <Button
             android:id="@+id/confirm_reg"
@@ -347,7 +353,7 @@
                     android:id="@+id/faq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/faq"
+                    android:text="FAQ goes here"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
        <Button
             android:id="@+id/clear"

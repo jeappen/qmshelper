@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <Spinner
+        android:id="@+id/s1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView02"
+        android:prompt="@string/spinner_title"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:id="@+id/s3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s2"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/textView04"
+        android:prompt="@string/spinner_title"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:id="@+id/s4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s3"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/textView04"
+        android:prompt="@string/spinner_title"
+        android:textSize="15dp" />
+    
+     <TextView
+        android:id="@+id/textView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignTop="@+id/s1"
+        android:layout_marginTop="16dp"
+        android:text="Discounted :"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView01"
+        android:layout_alignTop="@+id/s2"
+        android:layout_marginTop="16dp"
+        android:text="Gallery Non-Disc (350/-):"
+        android:textSize="15dp" />
+
+   
+
+    <TextView
+        android:id="@+id/textView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/s3"
+        android:layout_marginTop="16dp"
+        android:text="Bowl Non-Disc (500/-):"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Cost"
+        android:layout_alignTop="@+id/s4"
+        android:layout_marginTop="16dp"
+        android:text="Exclusive Fan Pass (1000/-) :"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/Cost"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/textView02"
+        android:layout_below="@+id/s4"
+        android:layout_marginTop="30dp"
+        android:gravity="right"
+        android:text="Total Cost"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tvcost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/Cost"
+        android:layout_alignBottom="@+id/Cost"
+        android:layout_alignLeft="@+id/s4"
+        android:layout_alignParentRight="true"
+        android:text="0"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:id="@+id/s2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s1"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/textView04"
+        android:prompt="@string/spinner_title"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView03"
+        android:layout_below="@+id/Cost"
+        android:text="Scan"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tvFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/button1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvFor"
+        android:text="" />
+     <TextView
+        android:id="@+id/tvr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvCon"
+        android:text="" />
+      <TextView
+        android:id="@+id/tvr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvr1"
+        android:text="" />
+
+       <TextView
+        android:id="@+id/tvrem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvr2"
+        android:text="Use above or enter below" />
+       
+       <LinearLayout
+	    android:layout_width="0dp"
+	    android:layout_height="0dp"
+	    android:background="@android:color/transparent"
+	    android:focusable="true"
+	    android:focusableInTouchMode="true">
+		</LinearLayout>
+       
+
+      <EditText
+          android:id="@+id/etrem"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/textView01"
+          android:layout_below="@+id/tvr2"
+          android:layout_marginTop="16dp"
+          android:ems="10" 
+      />
+       <Button
+        android:id="@+id/B2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView03"
+        android:layout_below="@+id/etrem"
+        android:text="Remove"
+        android:textSize="15dp" />
+    
+</RelativeLayout>
+</ScrollView>

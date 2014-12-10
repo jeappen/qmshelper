@@ -53,17 +53,17 @@ public class Passport extends Activity {
 						
 					}
 				});
-		/*ebut.setOnClickListener(new OnClickListener() {
+		ebut.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-						Intent intent = new Intent(Choose.this, Event.class);
+						Intent intent = new Intent(Passport.this, SearchUser.class);
 						intent.putExtra("user", user);
 						intent.putExtra("pass", pass);
 						// i.putExtra("myStrings",myStrings);
 						startActivity(intent);
 					}
 				});
-	*/
+	
 		}
 
 }

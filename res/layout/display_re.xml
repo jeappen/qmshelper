@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+     <Button
+         android:id="@+id/b1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/tv1"
+         android:text="Send!"
+         android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:freezesText="true"
+        android:text="No of entries to send:"
+        android:textSize="15dp" />
+
+<GridView
+    android:id="@+id/gridview"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/b1"
+    android:columnWidth="90dp"
+    android:fastScrollEnabled="true"
+    android:focusable="false"
+    android:gravity="center"
+    android:horizontalSpacing="5dp"
+    android:numColumns="4"
+    android:stretchMode="columnWidth"
+    android:verticalSpacing="5dp" />
+
+</RelativeLayout>

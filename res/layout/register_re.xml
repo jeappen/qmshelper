@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+	<Button
+	    android:id="@+id/sendTeam"
+	    android:textSize="15sp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/button1"
+	    android:layout_toLeftOf="@+id/action_abort"
+	    android:text="Send as team!"
+	    android:visibility="gone"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" />
+	<Button
+	    android:id="@+id/action_abort"
+	    android:textSize="15sp"
+	    android:layout_alignParentRight="true"
+	    android:layout_below="@+id/button1"
+	    android:text="Abort"
+	    android:visibility="gone"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/s1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView01"
+        android:prompt="@string/spinner_title"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignTop="@+id/s1"
+        android:layout_marginTop="16dp"
+        android:text="Choose Event :"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s1"
+        android:text="Scan"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/sendTeam"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvFor"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvCon"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvr2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvr1"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvEntry"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tvr2"
+        android:text="Use 'Scan' or enter below to add IDs to stack" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+    </LinearLayout>
+
+    <EditText
+        android:hint="Enter id"
+        android:id="@+id/etEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView01"
+        android:layout_below="@+id/tvr2"
+        android:layout_marginTop="30dp"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/bEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEntry"
+        android:text="Add Entry"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/action_flush"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Flush field" />
+
+</RelativeLayout>
+
+</ScrollView>

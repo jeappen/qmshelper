@@ -15,16 +15,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New User" 
-        android:layout_centerHorizontal="true"/>
+        android:background="@drawable/roundshapentn"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:textColor="#ffffff"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
-        android:gravity="center_horizontal"
+        android:background="@drawable/roundshapentn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="Registered User" />
+        android:padding="5dp"
+        android:layout_marginTop="30dp"
+        android:text="Registered User" 
+        android:textColor="#ffffff"/>
 
     </RelativeLayout>

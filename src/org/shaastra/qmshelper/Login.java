@@ -45,7 +45,7 @@ public class Login extends Activity {
 				for (int i = 0; i < userpass.length; i++) {
 					if (user.compareTo(userpass2[i][0]) == 0
 							&& pass.compareTo(userpass2[i][1]) == 0) {
-						Intent intent = new Intent(Login.this, Choose.class);
+						Intent intent = new Intent(Login.this, Main.class);
 						intent.putExtra("user", user);
 						intent.putExtra("pass", pass);
 						flag = true;
@@ -57,7 +57,7 @@ public class Login extends Activity {
 					AlertDialog alertDialog = new AlertDialog.Builder(
 							Login.this).create();
 					alertDialog.setTitle("Wrong Username or Password");
-					alertDialog.setMessage("Contact Saarang Team");
+					alertDialog.setMessage("Contact Shaastra Team");
 					alertDialog.show();
 				}
 			}

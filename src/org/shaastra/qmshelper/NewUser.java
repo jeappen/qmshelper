@@ -9,7 +9,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.shaastra.qmshelper.Register.SubmitRegistration;
+import org.shaastra.qmshelper.Register_old.SubmitRegistration;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -57,11 +57,15 @@ public class NewUser extends FragmentActivity implements OnDateSetListener   {
 	
 EditText fnameET,lnameET,emailET,crollET,mobnumET ,bcodeET,cbranchET,cnameET,cityET,passwordET;
 Spinner branch_spinner;
+RadioGroup genderRG,accomRG;
+TextView dateView,idTV,faq;
+Button updatebut,regbut;
+
 String gender, dobS,email,accomodation, fname ,lname ,croll,mobnum,cbranch,cname,city,password;
 String[] branches="School\nArts\nAccounting\nApplied Mechanics\nMechatronics\nAerospace Engineering\nAutomobile Engineering\nBiotech / Biochemical / Biomedical\nBiology\nCeramic Engineering\nChemical Engineering\nChemistry\nDesign\nEngineering Design\nCivil Engineering\nComputer Science and Engineering\nElectronics and Communications Engineering\nElectrical and Electronics Engineering\nElectrical Engineering\nElectronics and Instrumentation Engineering\nEngineering Physics\nEconomics\nFashion Technology\nHumanities and Social Sciences\nIndustrial Production\nProduction\nInformation Technology and Information Science\nManagement\nManufacturing\nMathematics\nMetallurgy and Material Science\nMechanical Engineering\nOcean Engineering and Naval Architecture\nPhysics\nTelecom\nTextile Engineering\nOthers".split("\n");
 ArrayAdapter<String> branch_data;
 private Calendar calendar,dob;
-private TextView dateView;
+
 private int year, month, day,age;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,12 +73,8 @@ private int year, month, day,age;
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newuser);
-	}
+		
 
-	@Override
-	public void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
 		dateView = (TextView) findViewById(R.id.DOB);
 	      calendar = Calendar.getInstance();
 	      year = calendar.get(Calendar.YEAR);
@@ -82,7 +82,8 @@ private int year, month, day,age;
 	      day = calendar.get(Calendar.DAY_OF_MONTH);
 	      dob= Calendar.getInstance();
 	      branch_data= new ArrayAdapter<String>(NewUser.this,android.R.layout.simple_spinner_item, branches);
-	      dateView.setText("DOB : " + day+"/"+(month+1)+"/"+year);
+	      dateView.setText("DOB : --/--/----"); 
+	      //dateView.setText("DOB : " + day+"/"+(month+1)+"/"+year);
 	      gender="F";
 	      accomodation="0";
 	      setTitle("New User");
@@ -90,9 +91,11 @@ private int year, month, day,age;
 	      branch_spinner=(Spinner)findViewById(R.id.branch_spinner);
 	      branch_data.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	      branch_spinner.setAdapter(branch_data); 
-		fnameET=(EditText) findViewById(R.id.fname);
+	      
+	      idTV=(TextView) findViewById(R.id.idTV);
+	      faq=(TextView) findViewById(R.id.faq);
+	      		fnameET=(EditText) findViewById(R.id.fname);
 				lnameET=(EditText) findViewById(R.id.lname);
-
 				emailET =(EditText) findViewById(R.id.emailid_reg);
 				crollET =(EditText) findViewById(R.id.croll);
 				mobnumET =(EditText) findViewById(R.id.mobnum);
@@ -101,6 +104,10 @@ private int year, month, day,age;
 				cityET =(EditText) findViewById(R.id.city);
 				passwordET =(EditText) findViewById(R.id.pw);
 				bcodeET=(EditText) findViewById(R.id.bcodeET);
+				
+				idTV.setText(getResources().getString(R.string.id_name)+" : "+getResources().getString(R.string.id_default));
+				faq.setText(getResources().getString(R.string.faq));
+				emailET.setEnabled(true);
 		boolean a = false;
 		ConnectivityManager connectivityManager = (ConnectivityManager) this
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -121,8 +128,8 @@ private int year, month, day,age;
 		}
 		*/
 		
-		Button b=(Button) findViewById(R.id.update);
-		b.setOnClickListener(new View.OnClickListener() {
+		updatebut=(Button) findViewById(R.id.update);
+		updatebut.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -140,9 +147,9 @@ private int year, month, day,age;
 				
 			}
 		});
-		b.setVisibility(View.GONE);
-		RadioGroup genderRG = (RadioGroup)findViewById(R.id.radioGroup1);
-		RadioGroup accomRG = (RadioGroup) findViewById(R.id.radioGroup2);
+		updatebut.setVisibility(View.GONE);
+		genderRG = (RadioGroup)findViewById(R.id.radioGroup1);
+		accomRG = (RadioGroup) findViewById(R.id.radioGroup2);
 		genderRG.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -182,8 +189,8 @@ accomRG.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
 			}
 		});
-Button reg=(Button) findViewById(R.id.confirm_reg);
-reg.setOnClickListener(new View.OnClickListener() {
+regbut=(Button) findViewById(R.id.confirm_reg);
+regbut.setOnClickListener(new View.OnClickListener() {
 	
 	@Override
 	public void onClick(View v) {
@@ -203,13 +210,25 @@ reg.setOnClickListener(new View.OnClickListener() {
 				Toast.makeText(getApplicationContext(), "The password should have at least 6 characters!", Toast.LENGTH_LONG).show();
 				}*/
 			else{
-				new SubmitRegistration().execute();
-				new UpdateDetails().execute();	
+				if(emailET.isEnabled()){
+					new SubmitRegistration().execute();
+					
+					}
+				
+				new UpdateDetails().execute();
 			}
 		}catch(Exception e){
 			//Toast.makeText(getApplicationContext(), "Not connected to internet", Toast.LENGTH_SHORT).show();
 		}
 	}});
+	regbut.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	public void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		
 		
 	}
 	 public boolean isValidEmailAddress(String email) {
@@ -291,13 +310,20 @@ reg.setOnClickListener(new View.OnClickListener() {
 		    }
 		}
 		bcodeET.setText("");
+		branch_spinner.setSelection(0);
+		genderRG.check(R.id.Female);
+		accomRG.check(R.id.notwanted);
+		emailET.setEnabled(true);
+		idTV.setText(getResources().getString(R.string.id_name)+" : "+getResources().getString(R.string.id_default));
 		uid.edit().clear().commit();
+		updatebut.setVisibility(View.GONE);
+		regbut.setVisibility(View.VISIBLE);
 		final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 		dob.set(year, month, day);
-        dateView.setText("DOB : " + day+"/"+(month+1)+"/"+year);
+		dateView.setText("DOB : --/--/----"); 
         fnameET.requestFocus();
 	}
 	
@@ -414,6 +440,8 @@ reg.setOnClickListener(new View.OnClickListener() {
 			paramse.add(new BasicNameValuePair("college_text", cname));
 			if(!city.isEmpty())
 			paramse.add(new BasicNameValuePair("city", city));
+			if(!bcode.isEmpty())
+				paramse.add(new BasicNameValuePair("barcode", bcode));
 			if(!password.isEmpty())
 			paramse.add(new BasicNameValuePair("password", password));
 			paramse.add(new BasicNameValuePair("want_accomodation", accomodation));
@@ -437,10 +465,18 @@ reg.setOnClickListener(new View.OnClickListener() {
 		@Override
 		protected void onPostExecute(String file_url) {
 			pDialog.dismiss();
-			if(token.equals("nothing"))
+			if(token.equals("nothing")){
 				Toast.makeText(getApplicationContext(), "ERR: Can't update Details", Toast.LENGTH_LONG).show();
-			else
+				emailET.setEnabled(true);
+
+				regbut.setVisibility(View.VISIBLE);
+				updatebut.setVisibility(View.GONE);
+			}
+			else{
 				Toast.makeText(getApplicationContext(), "Details Updated Successfully", Toast.LENGTH_SHORT).show();
+				regbut.setVisibility(View.GONE);
+				updatebut.setVisibility(View.VISIBLE);
+			}
 			/*Intent i=new Intent(PostView.this,PostView.class);
             i.putExtra("post_id", post_id);
            i.putExtra("WallName", wall_name);
@@ -448,92 +484,17 @@ reg.setOnClickListener(new View.OnClickListener() {
             startActivity(i);8*/
 		}
 	}
-	
-/*
-	class ExistingDetails extends AsyncTask<String, String, String> {
-		private ProgressDialog pDialog;
-		JSONParser jsonParser = new JSONParser();
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			pDialog = new ProgressDialog(getApplicationContext());
-			pDialog.setMessage("Getting Existing Details");
-			pDialog.setIndeterminate(false);
-			pDialog.setCancelable(true);
-			pDialog.show();
-		}
-		
-		
-		@Override
-		protected String doInBackground(String... params) {
-			// TODO Auto-generated method stub
-			
-			final List<NameValuePair> paramse = new ArrayList<NameValuePair>();
-			
-			SharedPreferences uid = getApplicationContext().getSharedPreferences("uid",0);
-			final String token = uid.getString("uid", "Aaa");
-			String url = "api/mobile/profile/";
-			JSONObject json = jsonParser.makeHttpRequest(url, "POST", paramse, token);
-			
-			
-			try {
-				json=json.getJSONObject("data");
-				fname =json.getString("first_name");
-				lname =json.getString("last_name");
-				croll =json.getString("college_roll");
-				mobnum =json.getString("mobile_number");
-				 cbranch =json.getString("branch");
-				 cname =json.getString("college_text");
-				 dobS=json.getString("dob");
-				city =json.getString("city");
-				password =json.getString("password");
-				gender =json.getString("gender");
-				accomodation=json.getString("want_accomodation");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Log.d("Existing Results",json.toString());
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(String file_url) {
-			fnameET.setText(fname, TextView.BufferType.EDITABLE);
-			lnameET.setText(lname, TextView.BufferType.EDITABLE);
-			if(!croll.equals("null"))
-			crollET.setText(croll, TextView.BufferType.EDITABLE);
-			if(!mobnum.equals("null"))
-				mobnumET.setText(mobnum, TextView.BufferType.EDITABLE);
-			if(!cbranch.equals("null")){
-				int spinnerPosition = branch_data.getPosition(cbranch);
-				branch_spinner.setSelection(spinnerPosition);
-				//cbranchET.setText(cbranch, TextView.BufferType.EDITABLE);
-				}
-			if(!cname.equals("null"))
-				cnameET.setText(cname, TextView.BufferType.EDITABLE);
-			if(!city.equals("null"))
-				cityET.setText(city, TextView.BufferType.EDITABLE);
-			if(!dob.equals("null"))
-				 dateView.setText("DOB : " +dobS.replace('-','/'));
-			passwordET.setText(password, TextView.BufferType.EDITABLE);
-			pDialog.dismiss();
-			Toast.makeText(getApplicationContext(), "Done", Toast.LENGTH_SHORT).show();
-			
-            startActivity(i);
-		}
-	}*/
 
 	class SubmitRegistration extends AsyncTask<String, String, String> {
 		private ProgressDialog pDialog;
 		JSONParser jsonParser = new JSONParser();
 		int error;
-		String errmsg;
+		String errmsg,user_id;
 		@Override
 		protected void onPreExecute() {
 			Log.d("milestone01submitreg","got here");
 			super.onPreExecute();
-			error=0; errmsg="Generic Error";
+			error=0; errmsg="Generic Error"; user_id=null;
 			pDialog = new ProgressDialog(NewUser.this);
 			pDialog.setMessage("Making New Account");
 			pDialog.setIndeterminate(false);
@@ -561,7 +522,7 @@ reg.setOnClickListener(new View.OnClickListener() {
 					
 					Log.d("Registration Results",json.toString());
 					String tx = null;
-					
+						user_id=json.optString("user_id");
 						tx = json.optString("token");
 						if(tx.isEmpty()){
 						error=1;
@@ -603,7 +564,10 @@ reg.setOnClickListener(new View.OnClickListener() {
 	            alert11.show();
 			}
 			else{
+				idTV.setText(getResources().getString(R.string.id_name)+" : "+getResources().getString(R.string.id_prefix)+String.format("%05d", Integer.parseInt(user_id)));
 				Toast.makeText(getApplicationContext(), "Account made", Toast.LENGTH_SHORT).show();
+				emailET.setEnabled(false);
+				mobnumET.requestFocus();
 				//Intent open = new Intent("org.shaastra.eventregistration.Menu");
 				//startActivity(open);
 			}
